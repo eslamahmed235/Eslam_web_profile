@@ -536,11 +536,11 @@ export default function Portfolio() {
           <div style={{ background: C.white, borderRadius: "14px", padding: "28px", border: `1px solid ${C.border}`, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
             <h3 style={{ fontSize: "16px", fontWeight: 700, color: C.text, marginBottom: "16px", fontFamily: "'Syne', sans-serif" }}>Connect With Me</h3>
             {[
-              { icon: "📧", label: "Email", value: "eslamahme@gmail.com", link: "mailto:eslamahme@gmail.com" },
+              { icon: "📧", label: "Email", value: "eslamahme@gmail.com", link: "eslamahme@gmail.com" },
               { icon: "📱", label: "Phone", value: "+20 102 189 9767", link: "tel:+201021899767" },
-              { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/eslamahmed", link: "https://linkedin.com" },
-              { icon: "🐙", label: "GitHub", value: "github.com/eslamahmed", link: "https://github.com" },
-              { icon: "🟢", label: "Upwork", value: "Top-Rated Freelancer", link: "https://upwork.com" },
+              { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/eslamahmed", link: "https://www.linkedin.com/in/eslamahmed235/" },
+              { icon: "🐙", label: "GitHub", value: "github.com/eslamahmed", link: "https://github.com/eslamahmed235" },
+              { icon: "🟢", label: "Upwork", value: "Top-Rated Freelancer", link: "https://www.upwork.com/freelancers/~011922fdab549bed80?mp_source=share" },
             ].map(c => (
               <a key={c.label} href={c.link} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "12px", padding: "10px 0", borderBottom: `1px solid ${C.border}`, textDecoration: "none", color: C.text, fontSize: "13px" }}>
                 <span style={{ fontSize: "16px" }}>{c.icon}</span>
