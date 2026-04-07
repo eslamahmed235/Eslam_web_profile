@@ -6,7 +6,8 @@
       "Bash(pip install:*)",
       "Bash(npm run:*)",
       "Bash(npx vite:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(chmod +x d:/interview/CVs/web_profile/Eslam_web_profile/node_modules/.bin/vite)"
     ]
   }
 }

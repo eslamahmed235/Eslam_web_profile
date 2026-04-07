@@ -234,6 +234,70 @@ const projects = [
     results: [{ metric: "10 params", label: "Health parameters monitored" }, { metric: "Real-time", label: "Wireless data transmission" }, { metric: "Dual platform", label: "Android + Web dashboard" }],
     color: C.rose,
   },
+  {
+    id: "recruitment-ai", title: "AI Recruitment System", subtitle: "Intelligent Candidate Recommendation & Chatbot Platform for Recruitment", date: "Mar 2023", client: "Curve AI — Talents Arena",
+    problem: "Traditional recruitment processes rely on manual resume screening and keyword-based matching, resulting in high candidate-job misalignment, slow hiring cycles, and poor candidate experience. Recruiters spend excessive time sourcing and evaluating candidates without intelligent tools to surface the best matches, while candidates lack visibility into relevant opportunities matching their actual skills and experience.",
+    solution: "Built an end-to-end AI-powered recruitment recommendation system leveraging NLP and neural networks for intelligent candidate-job matching. The platform features dual recommendation engines: one for surfacing job openings tailored to company requirements, and another for recommending candidates based on qualifications, skills, and experience. Integrated LLaMA 7B for candidate summarization and LLaMA 13B for advanced context-aware conversational flows via a chatbot that enables recruiters to discuss and evaluate candidates. Engineered data processing pipelines with Pandas and JSON schemas for dynamic handling of resumes and job postings, with A/B testing and ranking evaluation achieving 0.81 Precision@5.",
+    tech: ["LLaMA 7B/13B", "LangChain", "Pandas", "Docker", "Semantic Ranking", "A/B Testing", "Python", "NLP"],
+    features: [
+      "Dual recommendation engine: job recommendations for recruiters and candidate recommendations for specific openings",
+      "LLaMA 7B-powered candidate summarization highlighting key qualifications and attributes for quick evaluation",
+      "LLaMA 13B chatbot integration enabling recruiters to discuss, compare, and evaluate candidates conversationally",
+      "Candidate dashboard displaying relevant job openings and career opportunity exploration",
+      "Data processing pipelines with JSON schema processing and feature extraction for dynamic resume/job handling",
+      "A/B testing and offline benchmarking with ranking evaluation metrics for continuous model improvement"
+    ],
+    results: [{ metric: "0.81", label: "Precision@5 accuracy" }, { metric: "35%", label: "Less hiring misalignment" }, { metric: "60%", label: "Faster hiring cycle" }],
+    color: C.purple,
+  },
+  {
+    id: "social-media", title: "Social Media Analysis", subtitle: "Large-Scale Tweet Analytics with Predictive Modeling", date: "Sep 2021", client: "University of Ottawa — Microsoft-Sponsored Capstone",
+    problem: "Understanding public sentiment and demographic patterns across social media at scale requires processing millions of unstructured text data points with high accuracy. Traditional analytics tools cannot handle the volume, linguistic diversity, and real-time demands of large-scale social media analysis needed for actionable business and research insights.",
+    solution: "Processed 10M+ tweets for large-scale social media analysis, building predictive models for user demographics, 5-level sentiment classification, and multi-label emotion detection. Developed comprehensive NLP pipelines including text preprocessing, feature engineering, and ensemble classification models. Deployed interactive dashboards via Power BI and Plotly for real-time actionable analytics, enabling stakeholders to explore trends, sentiment shifts, and demographic insights dynamically.",
+    tech: ["Python", "scikit-learn", "Power BI", "Plotly", "NLP", "Pandas", "NumPy"],
+    features: [
+      "Large-scale processing pipeline handling 10M+ tweets with efficient text preprocessing and feature extraction",
+      "5-level sentiment classification with ensemble ML models for nuanced opinion mining",
+      "Multi-label emotion detection identifying complex emotional patterns across tweet content",
+      "User demographic prediction models for audience segmentation and targeting insights",
+      "Interactive Power BI and Plotly dashboards for real-time trend visualization and drill-down analytics",
+      "Microsoft-sponsored research with production-grade analytics pipeline deployment"
+    ],
+    results: [{ metric: "10M+", label: "Tweets processed" }, { metric: "5-level", label: "Sentiment classification" }, { metric: "Real-time", label: "Interactive dashboards" }],
+    color: C.sky,
+  },
+  {
+    id: "iot-botnet", title: "IoT Botnet Detection", subtitle: "Adaptive ML-Based Network Intrusion Detection System", date: "Apr 2021", client: "Academic Research — Network Security",
+    problem: "The rapid proliferation of IoT devices has created an expanding attack surface for botnet-based network intrusions. Traditional rule-based intrusion detection systems cannot adapt to evolving attack patterns, suffer from high false positive rates, and lack the ability to process network traffic streams in real-time — leaving IoT networks vulnerable to DDoS, data exfiltration, and device hijacking attacks.",
+    solution: "Developed a machine learning system for detecting network intrusions and IoT botnet attacks using Decision Tree, Random Forest, and SVM algorithms trained on structured network traffic datasets. Implemented a real-time detection pipeline using Apache Kafka for stream processing, enabling continuous monitoring of network traffic patterns. Designed the system to adapt over time with iterative evaluation using accuracy, F1-score, and detailed classification reports, enhancing detection performance as attack patterns evolve.",
+    tech: ["scikit-learn", "Apache Kafka", "Random Forest", "SVM", "Decision Tree", "Pandas", "Python"],
+    features: [
+      "Multi-algorithm ensemble: Decision Tree, Random Forest, and SVM for robust intrusion classification",
+      "Real-time stream processing pipeline using Apache Kafka for continuous network traffic monitoring",
+      "Adaptive detection model designed to evolve with changing IoT botnet attack patterns",
+      "Comprehensive evaluation with accuracy, F1-score, precision, recall, and confusion matrix analysis",
+      "Structured CSV dataset processing with feature engineering for network traffic characterization",
+      "Scalable architecture supporting high-throughput packet analysis for production IoT networks"
+    ],
+    results: [{ metric: "Real-time", label: "Kafka stream detection" }, { metric: "3 models", label: "Ensemble classification" }, { metric: "Adaptive", label: "Evolving threat detection" }],
+    color: C.warm,
+  },
+  {
+    id: "securenet", title: "SecureNet IDS", subtitle: "Deep Learning Intrusion Detection & Prevention System", date: "Mar 2021", client: "Academic Research — Cybersecurity",
+    problem: "Complex network intrusions including DoS, Probe, User-to-Root (U2R), and Remote-to-Local (R2L) attacks require sophisticated detection mechanisms that go beyond traditional signature-based approaches. Standard ML classifiers struggle with the high dimensionality and class imbalance inherent in network intrusion datasets, particularly for rare but critical attack types like U2R and R2L.",
+    solution: "Built a network security solution combining Autoencoders for unsupervised anomaly detection with ANN classifiers and traditional ML algorithms to detect complex intrusion types. The autoencoder learns normal traffic patterns and flags anomalies, while the ANN classifier categorizes detected intrusions into specific attack types. Trained and validated on industry-standard datasets (UNSW-NB15 and NSL-KDD) from the University of New Brunswick, with performance evaluation using accuracy, precision, and confusion matrix analysis to optimize detection reliability across all attack categories.",
+    tech: ["TensorFlow", "Keras", "scikit-learn", "Pandas", "NumPy", "Python", "Deep Learning"],
+    features: [
+      "Hybrid architecture: Autoencoder for anomaly detection + ANN classifier for attack categorization",
+      "Multi-class intrusion detection: DoS, Probe, User-to-Root (U2R), and Remote-to-Local (R2L) attacks",
+      "Trained on industry-standard benchmarks: UNSW-NB15 and NSL-KDD datasets",
+      "Autoencoder-based unsupervised feature learning for capturing normal traffic distribution patterns",
+      "Comprehensive evaluation with accuracy, precision, recall, and confusion matrix across all attack types",
+      "Traditional ML baseline comparison (SVM, Random Forest) for rigorous performance benchmarking"
+    ],
+    results: [{ metric: "Hybrid", label: "Autoencoder + ANN" }, { metric: "2 benchmarks", label: "UNSW-NB15 & NSL-KDD" }, { metric: "Multi-class", label: "4 attack categories" }],
+    color: C.green,
+  },
 ];
 
 const experiences = [
@@ -532,26 +596,6 @@ export default function Portfolio() {
       <Section sub="Production AI systems delivering measurable business outcomes">All Projects</Section>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
         {projects.map(p => <ProjCard key={p.id} p={p} onClick={() => setSelProj(p)} />)}
-      </div>
-      <div style={{ marginTop: "40px" }}>
-        <h3 style={{ fontSize: "18px", fontWeight: 700, color: C.text, fontFamily: "'Syne', sans-serif", marginBottom: "16px" }}>Earlier Projects</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
-          {[
-            { t: "AI Recruitment System", y: "2023", d: "LLaMA-powered candidate matching with A/B testing", s: "LangChain, LLaMA 7B/13B" },
-            { t: "Social Media Analysis", y: "2021–22", d: "Microsoft-sponsored capstone — 10M+ tweets sentiment detection", s: "Python, Power BI, NLP" },
-            { t: "IoT Botnet Detection", y: "2021", d: "ML-based network intrusion detection with real-time Kafka pipeline", s: "Random Forest, SVM, Kafka" },
-            { t: "SecureNet IDS", y: "2021", d: "Autoencoder + ANN intrusion detection on UNSW-NB15 and NSL-KDD", s: "Deep Learning, Python" },
-          ].map(e => (
-            <div key={e.t} style={{ background: C.white, borderRadius: "12px", padding: "18px", border: `1px solid ${C.border}`, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                <h4 style={{ fontSize: "14px", fontWeight: 600, color: C.text, margin: 0 }}>{e.t}</h4>
-                <span style={{ fontSize: "11px", color: C.textDim }}>{e.y}</span>
-              </div>
-              <p style={{ fontSize: "12px", color: C.textMuted, margin: "0 0 6px", lineHeight: 1.5 }}>{e.d}</p>
-              <span style={{ fontSize: "11px", color: C.accent, fontWeight: 600 }}>{e.s}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
