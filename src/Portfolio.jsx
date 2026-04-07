@@ -75,6 +75,38 @@ const projects = [
     color: C.warm,
   },
   {
+    id: "sqlviz", title: "SQL Query & Viz", subtitle: "LLM-Powered Natural Language to SQL Analytics Platform", date: "Jul 2025", client: "Telecom Data Analytics",
+    problem: "Telecom companies accumulate massive datasets spanning subscriber usage, billing cycles, payment histories, and device networks. Extracting meaningful insights from this data traditionally requires significant SQL expertise — limiting direct access to actionable information for business users and decision-makers who need real-time analytics without technical bottlenecks.",
+    solution: "Built an end-to-end LLM-powered analytics assistant using LangGraph that transforms natural language business questions into accurate, schema-aware SQL queries executed against Azure SQL databases. The pipeline features a multi-stage graph architecture: an NL-to-SQL generation node using GPT-4 with full schema injection and prompt engineering, a database execution layer returning structured DataFrames, an intelligent chart generation node producing up to three distinct Chart.js configurations rendered via QuickChart API, and an insight generation node delivering business-style natural language summaries contextualizing the results.",
+    tech: ["LangGraph", "LangChain", "OpenAI GPT-4", "Azure SQL", "QuickChart API", "Streamlit", "Pandas", "Python"],
+    features: [
+      "Natural language to SQL translation with full database schema awareness and query validation",
+      "Multi-stage LangGraph pipeline: SQL generation → execution → chart rendering → insight generation",
+      "Automatic generation of up to three distinct Chart.js visualizations per query with type diversity",
+      "Business-style natural language insight summaries contextualizing query results for decision-makers",
+      "Document upload and dynamic database update capabilities for evolving telecom datasets",
+      "Streamlit-based interactive UI with real-time query processing and result visualization"
+    ],
+    results: [{ metric: "3 charts", label: "Auto-generated per query" }, { metric: "Instant", label: "NL to SQL to insights" }, { metric: "Zero SQL", label: "Required from users" }],
+    color: C.purple,
+  },
+  {
+    id: "nextgen-rag", title: "NextGen RAG Chatbot", subtitle: "Enterprise-Grade Conversational AI with Advanced RAG Architecture", date: "Jun 2025", client: "Enterprise Client",
+    problem: "Traditional chatbot systems struggle with maintaining conversation context across sessions, retrieving accurate information from large document corpora, and delivering production-grade reliability with proper observability and error handling. Enterprises need a next-generation conversational AI that combines persistent memory, advanced retrieval-augmented generation, and robust deployment architecture.",
+    solution: "Engineered a production-grade RAG chatbot using LangGraph with a sophisticated multi-node orchestration architecture. The system features a persistence and memory layer for multi-session conversation continuity, a retrieval-augmented generation flow with semantic search over vectorized document stores, an optimized prompting strategy for context-aware response generation, and async execution models for high-throughput inference. Integrated comprehensive observability, security compliance layers, and error handling with graceful fallbacks.",
+    tech: ["LangGraph", "LangChain", "FAISS", "OpenAI GPT-4", "FastAPI", "Redis", "Docker", "Python"],
+    features: [
+      "LangGraph-based multi-node orchestration with state management and conditional routing",
+      "Persistent memory system for multi-session conversation continuity and context retention",
+      "Advanced RAG flow with semantic retrieval, context assembly, and relevance scoring",
+      "Optimized prompting strategy with dynamic context window management and response quality control",
+      "Full observability stack with monitoring, logging, and performance tracking dashboards",
+      "Async execution model for high-throughput, low-latency inference at production scale"
+    ],
+    results: [{ metric: "Production", label: "Enterprise-grade deployment" }, { metric: "Multi-session", label: "Persistent memory" }, { metric: "Async", label: "High-throughput inference" }],
+    color: C.accent,
+  },
+  {
     id: "wzgate", title: "WzGATE", subtitle: "Intelligent Real Estate Conversational AI with RAG", date: "Mar 2025", client: "Real Estate Company (Egypt)",
     problem: "Real estate agents were overwhelmed by repetitive property queries across WhatsApp and web channels, with no way to intelligently distinguish between property-specific questions (requiring database lookup) and general market or neighborhood questions (requiring web knowledge). Response times averaged 4+ hours, causing lost leads.",
     solution: "Architected a dual-mode conversational AI system using LangGraph with a classifier LLM that dynamically routes queries between two specialized RAG subgraphs: a Property RAG for database-backed listing queries with FAISS semantic search over structured property data, and a General Knowledge RAG using Tavily real-time web search for market trends, neighborhood info, and regulatory questions. Deployed via Twilio WhatsApp API and Streamlit web interface for omni-channel delivery.",
@@ -89,6 +121,22 @@ const projects = [
     ],
     results: [{ metric: "Dual-mode", label: "Intelligent query routing" }, { metric: "Omni-channel", label: "WhatsApp + Web" }, { metric: "<30s", label: "Avg. response time" }],
     color: C.sky,
+  },
+  {
+    id: "mandatory-checker", title: "Mandatory List Checker", subtitle: "AI-Powered Bilingual Product Matching & Compliance Verification", date: "Mar 2025", client: "Government / Regulatory Compliance",
+    problem: "Organizations must verify whether product names — often messy, bilingual (Arabic/English), or inconsistently formatted — appear on official mandatory lists and determine Local Content Certificate and baseline requirements. Manual Excel lookups are slow, error-prone, and don't scale when processing large product catalogs, leading to compliance gaps and certification delays.",
+    solution: "Built an interactive AI-driven compliance verification tool with a three-tier matching pipeline: exact dictionary lookup, lexical similarity scoring via RapidFuzz, and semantic vector search using FAISS with OpenAI embeddings. The system handles Arabic/English normalization, automatic language detection, and QA-threshold-based flagging for manual review. Integrated an LLM-powered conversational agent with function-calling tools enabling users to query, explain, filter, toggle flags, and correct matching results through natural dialogue — all persisted in Streamlit session state with exportable results.",
+    tech: ["OpenAI GPT-4", "FAISS", "RapidFuzz", "Streamlit", "Pandas", "NumPy", "Python"],
+    features: [
+      "Three-tier matching pipeline: exact lookup → lexical (RapidFuzz) → semantic (FAISS + embeddings) with best-score selection",
+      "Bilingual Arabic/English text normalization: diacritics stripping, punctuation cleaning, case normalization",
+      "LLM-powered chat agent with function-calling tools for querying, explaining, filtering, and editing match results",
+      "QA-threshold flagging system for automatic identification of matches requiring manual verification",
+      "CSV/XLSX upload support with one-click demo data for rapid testing and onboarding",
+      "Exportable results with match method, confidence scores, baseline status, and certification requirements"
+    ],
+    results: [{ metric: "3-tier", label: "Matching pipeline" }, { metric: "Bilingual", label: "Arabic + English" }, { metric: "High precision", label: "Minimal false matches" }],
+    color: C.teal,
   },
   {
     id: "kfsc", title: "KFSC Edu Assist", subtitle: "Arabic Academic RAG Assistant with Custom NLP", date: "Feb 2025", client: "KFSC Academic Institution (Saudi Arabia)",
@@ -138,6 +186,54 @@ const projects = [
     results: [{ metric: "36K+", label: "Images generated & evaluated" }, { metric: "4 dialects", label: "Arabic dialect coverage" }, { metric: "First study", label: "Arabic dialect image gen" }],
     color: C.teal,
   },
+  {
+    id: "datalentech", title: "Datalentech Platform", subtitle: "Enterprise Data Intelligence & Analytics Automation Platform", date: "Jul 2024", client: "Datalentech — Data Technology Company",
+    problem: "Data-driven organizations face growing challenges in extracting actionable intelligence from diverse, high-volume data sources. Existing workflows involve fragmented tools, manual data processing pipelines, and limited automation — resulting in slow time-to-insight, inconsistent data quality, and inability to scale analytics operations across teams and departments.",
+    solution: "Designed and delivered a comprehensive data intelligence platform combining automated data processing pipelines with AI-powered analytics capabilities. The system features end-to-end ETL automation with intelligent data validation and quality checks, machine learning models for predictive analytics and anomaly detection, and interactive dashboards for real-time business intelligence. Built modular, scalable architecture enabling rapid integration with diverse data sources and downstream analytics workflows.",
+    tech: ["Python", "Pandas", "scikit-learn", "FastAPI", "PostgreSQL", "Docker", "Power BI", "Apache Airflow"],
+    features: [
+      "Automated ETL pipelines with intelligent data validation, cleansing, and quality scoring",
+      "Machine learning models for predictive analytics, trend forecasting, and anomaly detection",
+      "Interactive analytics dashboards with real-time data visualization and drill-down capabilities",
+      "Modular data connector architecture supporting diverse source formats (CSV, APIs, databases, cloud storage)",
+      "Scheduled pipeline orchestration with Apache Airflow for reliable, fault-tolerant data processing",
+      "Role-based access control and audit logging for enterprise data governance compliance"
+    ],
+    results: [{ metric: "Automated", label: "End-to-end ETL pipelines" }, { metric: "Real-time", label: "Business intelligence" }, { metric: "Scalable", label: "Multi-source integration" }],
+    color: C.warm,
+  },
+  {
+    id: "mealit", title: "Mealit", subtitle: "AI-Powered Meal Planning & Kitchen Assistant with Recommendation Engine", date: "Jan 2023", client: "Suez Canal University — Graduation Project",
+    problem: "The rise of busy lifestyles and fast-food consumption has led to a decline in home-cooked meals, contributing to health issues and significant household food waste. Users lack convenient tools to plan meals based on available ingredients, discover recipes matching dietary preferences, and manage grocery shopping efficiently — resulting in poor nutrition, wasted food, and unnecessary spending.",
+    solution: "Developed a full-stack AI-powered meal planning application featuring an intelligent recommendation system that suggests recipes based on available household ingredients using collaborative and content-based filtering algorithms. The system includes image recognition for ingredient identification, a role-based chatbot for personalized culinary guidance, a shopping cart with price comparison across grocery stores, and low-ingredient alerts. Built with React frontend, Node.js backend, Flutter mobile app, and Python ML services with Redux state management.",
+    tech: ["Python", "React", "Node.js", "Flutter", "Redux", "MongoDB", "TensorFlow", "scikit-learn"],
+    features: [
+      "AI recommendation engine using collaborative and content-based filtering for personalized recipe suggestions",
+      "Image recognition system for automatic ingredient identification from photos",
+      "Role-based chatbot providing personalized cooking guidance, dietary advice, and meal planning assistance",
+      "Shopping cart with cross-store price comparison and automatic low-ingredient alerts",
+      "Cross-platform delivery: React web application + Flutter mobile app with unified backend",
+      "Dietary restriction filtering, favorite recipe management, and step-by-step cooking instructions with timers"
+    ],
+    results: [{ metric: "Full-stack", label: "Web + Mobile app" }, { metric: "AI-powered", label: "Recipe recommendations" }, { metric: "Role-based", label: "Personalized chatbot" }],
+    color: C.green,
+  },
+  {
+    id: "iot-health", title: "IoT Healthcare System", subtitle: "Real-Time Biomedical Monitoring & Emergency Alert Platform", date: "Dec 2022", client: "Benha University — Master's Graduation Project",
+    problem: "Emergency healthcare situations require continuous, real-time monitoring of critical patient vital signs with immediate data transmission to medical professionals. Traditional monitoring systems are wired, immobile, and lack remote accessibility — preventing timely intervention for patients in emergency scenarios, rural areas, or home care settings where rapid response is critical.",
+    solution: "Developed an innovative IoT healthcare monitoring system featuring a custom biomedical instrument equipped with eight sensors capable of monitoring ten different health parameters simultaneously. The system transmits captured health data via NodeMCU Wi-Fi connectivity to a microcontroller for processing, then delivers real-time readings to healthcare professionals through both an Android mobile application and a Thinger.io web dashboard. Designed for emergency scenarios with wireless data transfer, remote monitoring capabilities, and instant alert mechanisms.",
+    tech: ["Arduino", "NodeMCU", "Android SDK", "Thinger.io", "Wi-Fi", "IoT Sensors", "Java", "C++"],
+    features: [
+      "Custom biomedical instrument with 8 sensors monitoring 10 health parameters simultaneously",
+      "Real-time wireless data transmission via NodeMCU Wi-Fi to cloud-based processing",
+      "Android mobile application for healthcare professionals to monitor patient vitals remotely",
+      "Thinger.io web dashboard for real-time visualization and remote patient condition monitoring",
+      "Emergency alert system with configurable thresholds for critical vital sign changes",
+      "Microcontroller-based data aggregation and processing for efficient sensor data management"
+    ],
+    results: [{ metric: "10 params", label: "Health parameters monitored" }, { metric: "Real-time", label: "Wireless data transmission" }, { metric: "Dual platform", label: "Android + Web dashboard" }],
+    color: C.rose,
+  },
 ];
 
 const experiences = [
@@ -151,8 +247,20 @@ const experiences = [
     highlights: ["100% Job Success Score — $20K+ across 15+ production GenAI projects", "RAG pipelines, multi-agent systems, document intelligence, fine-tuned models", "Clients in legal tech, real estate, marketing, healthcare", "Consistently reducing client operational costs by 30–60%"],
     tech: ["LangChain", "LangGraph", "FAISS", "LlamaIndex", "OpenAI", "FastAPI"] },
   { title: "Machine Learning Engineer", company: "Curve AI — Talents Arena", type: "Full-time", period: "Apr 2021 – Apr 2024", location: "Cairo, Egypt",
-    highlights: ["AI recruitment system with LLM chatbot — 0.81 Precision@5", "SaaS talent-matching platform — cutting hiring cycle by 60%", "ML automation serving 10K+ monthly candidate evaluations"],
-    tech: ["Vector DBs", "Semantic Search", "LLMs", "Predictive Analytics"] },
+    highlights: ["Built an AI-powered recruitment recommendation system with LLM-based chatbot, achieving 0.81 Precision@5 and reducing candidate-job misalignment by 35%", "Engineered SaaS talent-matching platform using vector databases and semantic search, cutting average hiring cycle time by 60%", "Designed predictive analytics models and deployed ML-driven automation pipelines serving 10K+ monthly candidate evaluations", "Integrated LLaMA 7B/13B for candidate summarization and context-aware conversational flows with structured prompting"],
+    tech: ["Vector DBs", "Semantic Search", "LLMs", "Predictive Analytics", "LLaMA", "Docker"] },
+  { title: "AI Mentor & Session Lead", company: "Udacity", type: "Part-time", period: "Sep 2022 – Apr 2025", location: "Remote",
+    highlights: ["Delivered 2,200+ hours of live instruction on Python, ML, Deep Learning, and AI fundamentals to 600+ learners", "Achieved >95% learner satisfaction score through engaging, hands-on teaching methodology", "Mentored students through complex AI/ML projects, providing code reviews and career guidance", "Created supplementary learning materials and practice exercises for advanced topics"],
+    tech: ["Python", "Machine Learning", "Deep Learning", "AI Fundamentals"] },
+  { title: "AI Consultant & Researcher", company: "Lumina AI", type: "Part-time", period: "Jan 2024 – May 2024", location: "Remote",
+    highlights: ["Authored two peer-reviewed research papers on novel deep learning architectures for text classification and tabular data", "Developed RCL (Residual Connected Layers) architecture achieving state-of-the-art results on benchmark datasets", "Conducted rigorous experimental evaluation with ablation studies and comparative analysis against baseline models"],
+    tech: ["PyTorch", "Deep Learning", "Research", "NLP", "Tabular ML"] },
+  { title: "ML Project Author", company: "Educative, Inc.", type: "Contract", period: "May 2023 – Dec 2024", location: "Remote",
+    highlights: ["Authored a production computer vision project using DeOldify and OpenCV, published on Educative platform for 1M+ learners", "Designed hands-on curriculum covering image restoration, colorization, and CV pipeline development", "Created comprehensive project documentation with step-by-step tutorials and best practices"],
+    tech: ["OpenCV", "DeOldify", "Computer Vision", "Python"] },
+  { title: "AI & Data Science Instructor", company: "AMIT Learning", type: "Part-time", period: "Mar 2021 – Apr 2024", location: "Cairo, Egypt",
+    highlights: ["Designed and delivered comprehensive courses on ML, Deep Learning, NLP, and Generative AI", "Created hands-on labs and customized curricula tailored to diverse learner backgrounds", "Trained hundreds of aspiring data scientists and AI engineers with practical, industry-relevant skills"],
+    tech: ["Python", "ML", "NLP", "Deep Learning", "Generative AI"] },
 ];
 
 const skills = {
@@ -186,7 +294,7 @@ function MetricBox({ metric, label, color = C.accent }) {
 function Section({ children, sub }) {
   return (
     <div style={{ marginBottom: "36px" }}>
-      <h2 style={{ fontSize: "clamp(26px, 3.5vw, 36px)", fontWeight: 800, color: C.text, fontFamily: "'Syne', sans-serif", margin: 0, letterSpacing: "-0.02em" }}>{children}</h2>
+      <h2 style={{ fontSize: "clamp(24px, 3vw, 34px)", fontWeight: 800, color: C.text, fontFamily: "'Syne', sans-serif", margin: 0, letterSpacing: "-0.01em", lineHeight: 1.2, width: "fit-content" }}>{children}</h2>
       {sub && <p style={{ color: C.textMuted, fontSize: "15px", marginTop: "6px", maxWidth: "560px" }}>{sub}</p>}
       <div style={{ width: "48px", height: "3px", background: `linear-gradient(90deg, ${C.accent}, ${C.accent}40)`, marginTop: "14px", borderRadius: "2px" }} />
     </div>
@@ -239,7 +347,7 @@ function ProjDetail({ p, onClose }) {
           <h4 style={{ color: C.accent, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px", fontWeight: 700 }}>Key Features</h4>
           {p.features.map((f, i) => <div key={i} style={{ display: "flex", gap: "8px", marginBottom: "6px" }}><span style={{ color: p.color, marginTop: "1px" }}>→</span><span style={{ color: C.text, fontSize: "13.5px", lineHeight: 1.5 }}>{f}</span></div>)}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px", marginBottom: "22px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px", marginBottom: "22px" }}>
           {p.results.map((r, i) => <MetricBox key={i} metric={r.metric} label={r.label} color={p.color} />)}
         </div>
         <div>
@@ -280,7 +388,7 @@ export default function Portfolio() {
               <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: C.green, boxShadow: `0 0 8px ${C.green}` }} />
               <span style={{ fontSize: "12px", color: C.green, fontWeight: 600, letterSpacing: "0.04em" }}>AVAILABLE FOR CONSULTING & FREELANCE</span>
             </div>
-            <h1 style={{ fontSize: "clamp(30px, 4.5vw, 50px)", fontWeight: 800, lineHeight: 1.1, color: C.text, fontFamily: "'Syne', sans-serif", margin: "0 0 6px", letterSpacing: "-0.03em" }}>
+            <h1 style={{ fontSize: "clamp(26px, 3.8vw, 44px)", fontWeight: 800, lineHeight: 1.15, color: C.text, fontFamily: "'Syne', sans-serif", margin: "0 0 6px", letterSpacing: "-0.02em", width: "fit-content" }}>
               Eslam Ahmed<br /><span style={{ color: C.accent }}>Abdelrahman</span>
             </h1>
             <p style={{ fontSize: "clamp(14px, 1.6vw, 17px)", color: C.textMuted, lineHeight: 1.4, margin: "0 0 3px", fontWeight: 500 }}>
@@ -330,7 +438,7 @@ export default function Portfolio() {
       {/* Featured Projects */}
       <div style={wrap}>
         <Section sub="Recent high-impact AI systems deployed to production">Featured Projects</Section>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
           {projects.slice(0, 3).map(p => <ProjCard key={p.id} p={p} onClick={() => setSelProj(p)} />)}
         </div>
         <div style={{ textAlign: "center", marginTop: "28px" }}>
@@ -352,7 +460,7 @@ export default function Portfolio() {
   const AboutPage = () => (
     <div style={wrap}>
       <Section>About Me</Section>
-      <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1fr)", gap: "32px", alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px", alignItems: "start" }}>
         <div>
           <p style={{ fontSize: "15.5px", lineHeight: 1.8, color: C.text, marginBottom: "20px" }}>
             I'm a Senior Generative AI Engineer and AI Consultant based in Cairo, Egypt, with 6+ years delivering production-grade LLM systems for enterprise environments. I specialize in turning advanced AI capabilities into measurable business outcomes — from reducing inference costs by 40–60% to deploying first-of-kind Arabic NLP solutions.
@@ -364,7 +472,7 @@ export default function Portfolio() {
             Dual Master's in AI/Data Science (University of Ottawa) and IoT Engineering (Benha University), combining deep technical expertise with a production-first, cost-conscious mindset.
           </p>
           <h3 style={{ fontSize: "18px", fontWeight: 700, color: C.text, fontFamily: "'Syne', sans-serif", marginBottom: "16px" }}>Why Work With Me?</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "10px" }}>
             {["Production-first mindset", "Cost optimization expertise", "Full-stack AI deployment", "Arabic NLP pioneer", "Enterprise & compliance focus", "Bilingual (Arabic/English)"].map(d => (
               <div key={d} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <span style={{ color: C.accent, fontSize: "14px" }}>✓</span>
@@ -416,35 +524,14 @@ export default function Portfolio() {
           </div>
         ))}
       </div>
-      <h3 style={{ fontSize: "18px", fontWeight: 700, color: C.text, fontFamily: "'Syne', sans-serif", marginBottom: "16px", marginTop: "12px" }}>Additional Roles</h3>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "12px" }}>
-        {[
-          { t: "AI Consultant & Researcher", o: "Lumina AI", p: "Jan–May 2024", d: "2 peer-reviewed papers on novel deep learning architectures" },
-          { t: "ML Project Author", o: "Educative, Inc.", p: "May 2023–Dec 2024", d: "Published production CV project for 1M+ learners" },
-          { t: "AI Mentor & Session Lead", o: "Udacity", p: "Sep 2022–Apr 2025", d: "2,200+ hours of live instruction, 600+ learners, >95% satisfaction" },
-          { t: "AI & Data Science Instructor", o: "AMIT Learning", p: "Mar 2021–Apr 2024", d: "Courses on ML, NLP, and Generative AI" },
-        ].map(r => (
-          <div key={r.t} style={{ background: C.white, borderRadius: "12px", padding: "18px", border: `1px solid ${C.border}`, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-            <h4 style={{ fontSize: "14px", fontWeight: 600, color: C.text, margin: "0 0 3px" }}>{r.t}</h4>
-            <div style={{ fontSize: "12px", color: C.accent, fontWeight: 600, marginBottom: "4px" }}>{r.o} · {r.p}</div>
-            <p style={{ fontSize: "12px", color: C.textMuted, margin: 0, lineHeight: 1.5 }}>{r.d}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 
   const ProjectsPage = () => (
     <div style={wrap}>
       <Section sub="Production AI systems delivering measurable business outcomes">All Projects</Section>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
         {projects.map(p => <ProjCard key={p.id} p={p} onClick={() => setSelProj(p)} />)}
-        {[1, 2].map(i => (
-          <div key={`f-${i}`} style={{ background: C.white, borderRadius: "14px", padding: "24px", border: `1px dashed ${C.border}`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "180px", opacity: 0.5 }}>
-            <div style={{ fontSize: "22px", marginBottom: "6px" }}>🚀</div>
-            <div style={{ color: C.textDim, fontSize: "13px" }}>Coming soon</div>
-          </div>
-        ))}
       </div>
       <div style={{ marginTop: "40px" }}>
         <h3 style={{ fontSize: "18px", fontWeight: 700, color: C.text, fontFamily: "'Syne', sans-serif", marginBottom: "16px" }}>Earlier Projects</h3>
@@ -472,7 +559,7 @@ export default function Portfolio() {
   const SkillsPage = () => (
     <div style={wrap}>
       <Section sub="Deep expertise in production AI, from architecture to deployment">Skills & Expertise</Section>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
         {Object.entries(skills).map(([cat, items], i) => {
           const cols = [C.accent, C.purple, C.sky, C.warm, C.rose];
           const c = cols[i % cols.length];
@@ -531,7 +618,7 @@ export default function Portfolio() {
   const ContactPage = () => (
     <div style={wrap}>
       <Section sub="Let's discuss your next AI initiative">Get in Touch</Section>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
         <div>
           <div style={{ background: C.white, borderRadius: "14px", padding: "28px", border: `1px solid ${C.border}`, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
             <h3 style={{ fontSize: "16px", fontWeight: 700, color: C.text, marginBottom: "16px", fontFamily: "'Syne', sans-serif" }}>Connect With Me</h3>
@@ -573,13 +660,13 @@ export default function Portfolio() {
   const Pg = pages[page] || HomePage;
 
   return (
-    <div style={{ minHeight: "100vh", background: C.bg, color: C.text, fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: C.bg, color: C.text, fontFamily: "'DM Sans', sans-serif", overflowX: "hidden" }}>
       <nav style={{ position: "sticky", top: 0, zIndex: 100, background: `${C.bg}ee`, backdropFilter: "blur(10px)", borderBottom: `1px solid ${C.border}`, padding: "0 clamp(16px, 4vw, 56px)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: "1100px", margin: "0 auto", height: "58px" }}>
           <div style={{ fontSize: "18px", fontWeight: 800, color: C.text, fontFamily: "'Syne', sans-serif", cursor: "pointer", letterSpacing: "-0.02em" }} onClick={() => setPage("Home")}>
             Eslam <span style={{ color: C.accent }}>Ahmed</span>
           </div>
-          <div style={{ display: "flex", gap: "2px", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "2px", flexWrap: "wrap", justifyContent: "flex-end" }}>
             {NAV.map(n => (
               <button key={n} onClick={() => setPage(n)} style={{
                 background: page === n ? C.accentLight : "transparent", color: page === n ? C.accent : C.textMuted,
