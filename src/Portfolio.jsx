@@ -812,11 +812,11 @@ export default function Portfolio() {
           <div style={{ fontSize: "18px", fontWeight: 700, color: C.text, fontFamily: "'Syne', sans-serif", cursor: "pointer", letterSpacing: "-0.03em" }} onClick={() => setPage("Home")}>
             Eslam <span style={{ color: C.accent }}>Ahmed</span>
           </div>
-          <div style={{ display: "flex", gap: "2px", flexWrap: "wrap", justifyContent: "flex-end" }}>
+          <div style={{ display: "flex", gap: "2px", overflowX: "auto", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none" }}>
             {NAV.map(n => (
               <button key={n} onClick={() => setPage(n)} style={{
                 background: page === n ? C.accentLight : "transparent", color: page === n ? C.accent : C.textMuted,
-                border: "none", padding: "7px 12px", borderRadius: "6px", fontSize: "12.5px", fontWeight: page === n ? 600 : 400, cursor: "pointer",
+                border: "none", padding: "7px 10px", borderRadius: "6px", fontSize: "12.5px", fontWeight: page === n ? 600 : 400, cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
               }}>{n}</button>
             ))}
           </div>
