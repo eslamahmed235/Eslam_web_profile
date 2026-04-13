@@ -1,12 +1,12 @@
-# BOOM AI
+# CampaignCraft AI
 
 **Subtitle:** Intelligent Campaign Proposal & Contract Automation Platform
 
 **Date:** Mar 2026
 
-**Client:** BOOM — Influencer Marketing Agency
+**Client:** Influencer Marketing Agency
 
-**Problem:** BOOM's proposal and contract workflow required 12+ manual steps: interpreting Fireflies.ai meeting recordings, searching influencer databases, drafting proposals, managing revision cycles, and manually preparing contracts — a process heavily dependent on human interpretation across scattered data sources, with no version control or audit trail.
+**Problem:** The client's proposal and contract workflow required 12+ manual steps: interpreting Fireflies.ai meeting recordings, searching influencer databases, drafting proposals, managing revision cycles, and manually preparing contracts — a process heavily dependent on human interpretation across scattered data sources, with no version control or audit trail.
 
 **Solution:** Designed and delivered a production-grade multi-agent AI platform with two specialized agents orchestrated via LangGraph. The Proposal Generation Agent ingests Fireflies.ai meeting summaries, extracts campaign objectives and constraints, performs hybrid influencer retrieval (semantic search + metadata filtering + ranking), and generates structured proposals from templates. The Contract Generation Agent transforms approved proposals into legally structured contracts with clause assembly, then synchronizes with PandaDoc for e-signature workflows. A dedicated Workflow Orchestration Layer manages state transitions, version tracking, and mandatory human validation checkpoints across both phases.
 
@@ -136,7 +136,7 @@ Shipped as a Docker Compose stack with three services: FastAPI backend exposing 
 
 ---
 
-# NextGen RAG Chatbot
+# KnowledgeVault AI
 
 **Subtitle:** Enterprise-Grade Conversational AI with Advanced RAG Architecture
 
@@ -165,7 +165,7 @@ Shipped as a Docker Compose stack with three services: FastAPI backend exposing 
 
 ---
 
-# WzGATE
+# PropFlow AI
 
 **Subtitle:** Intelligent Real Estate Conversational AI with RAG
 
@@ -310,13 +310,13 @@ Shipped as a Docker Compose stack with three services: FastAPI backend exposing 
 
 ---
 
-# Cairo 3A AI Poultry
+# FarmSense AI
 
 **Subtitle:** Predictive Analytics & Conversational AI Platform for Poultry Farm Intelligence
 
 **Date:** Jul 2024
 
-**Client:** Cairo 3A — via Datalentech
+**Client:** Agri-Tech Operations Company
 
 **Problem:** Large-scale poultry operations managing multiple farms and houses generate massive daily telemetry — bird weights, mortality counts, feed consumption, medication logs, and environmental readings — but lack both predictive tools and accessible interfaces to act on that data. Farm managers rely on intuition and manual dashboard navigation, leading to reactive decision-making: feed waste goes undetected until cycle end, mortality spikes are caught too late, selling-period timing is guesswork, and non-technical staff are locked out of critical analytics. No existing system combines farm operations data with weather intelligence, forward-looking ML predictions, and a natural-language interface that lets any user query the platform conversationally.
 

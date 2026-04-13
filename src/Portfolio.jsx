@@ -27,8 +27,8 @@ const NAV = ["Home", "About", "Experience", "Projects", "Skills", "Education", "
 
 const projects = [
   {
-    id: "boom", title: "BOOM AI", subtitle: "Intelligent Campaign Proposal & Contract Automation Platform", date: "Mar 2026", client: "BOOM — Influencer Marketing Agency",
-    problem: "BOOM's proposal and contract workflow required 12+ manual steps: interpreting Fireflies.ai meeting recordings, searching influencer databases, drafting proposals, managing revision cycles, and manually preparing contracts — a process heavily dependent on human interpretation across scattered data sources, with no version control or audit trail.",
+    id: "campaigncraft", title: "Campaign Proposal Agent", subtitle: "Multi-Agent AI for Influencer Proposal & Contract Generation", date: "Mar 2026", client: "Influencer Marketing Agency",
+    problem: "The client's proposal and contract workflow required 12+ manual steps: interpreting Fireflies.ai meeting recordings, searching influencer databases, drafting proposals, managing revision cycles, and manually preparing contracts — a process heavily dependent on human interpretation across scattered data sources, with no version control or audit trail.",
     solution: "Designed and delivered a production-grade multi-agent AI platform with two specialized agents orchestrated via LangGraph. The Proposal Generation Agent ingests Fireflies.ai meeting summaries, extracts campaign objectives and constraints, performs hybrid influencer retrieval (semantic search + metadata filtering + ranking), and generates structured proposals from templates. The Contract Generation Agent transforms approved proposals into legally structured contracts with clause assembly, then synchronizes with PandaDoc for e-signature workflows. A dedicated Workflow Orchestration Layer manages state transitions, version tracking, and mandatory human validation checkpoints across both phases.",
     tech: ["LangGraph", "LangChain", "OpenAI GPT-4", "Airtable", "Fireflies.ai API", "PandaDoc API", "Pinecone", "FastAPI", "Docker", "Python"],
     features: [
@@ -43,7 +43,7 @@ const projects = [
     color: C.accent,
   },
   {
-    id: "onda", title: "ONDA", subtitle: "Multi-Agent AI Therapist Chatbot with Culturally-Sensitive Personalization", date: "Jan 2026", client: "Mental Health Startup",
+    id: "onda", title: "AI Therapy Chatbot", subtitle: "Multi-Agent Mental Health Assistant with Arabic Cultural Personalization", date: "Jan 2026", client: "Mental Health Startup",
     problem: "Delivering safe, empathetic AI-driven mental health conversations requires real-time emotion detection, multi-turn therapeutic context across sessions, strict dual-gate safety protocols with clinical-grade crisis handling, cultural and spiritual sensitivity (especially for Arabic-speaking users), and deep personalization — far beyond the capabilities of a standard chatbot or single-model system. Existing mental health tools lack long-term memory, culturally-aware tone adaptation, and structured therapeutic progression tracking.",
     solution: "Architected a production-grade multi-agent LLM system orchestrated via LangGraph with five specialized agents coordinated by a Supervisor controller. The CDM (Core Dialogue Model) Agent generates empathetic, culturally-sensitive therapeutic responses personalized via a Case & Style Report (CSR) built from user profiles. A Summary Agent extracts structured insights from conversations with 70% similarity deduplication. A Profile Agent maintains a 6-layer user profile (preferences, therapy progress, skills, sensitivities, conversation memory, long-term accumulation) with intelligent merging. A Dual-Gate Safety system combines an OpenAI Moderation API pre-check with a Guard Agent for crisis detection and clinical escalation. Memory architecture uses PostgreSQL for reliable long-term storage and Redis for sub-second hot-path reads, with a two-phase execution model: Critical Path (<2s user response via CDM → Guard) and Background Path (<800ms profile enrichment via Summary → Profile agents running in parallel).",
     tech: ["LangGraph", "LangChain", "OpenAI GPT-4", "PostgreSQL", "Redis", "FastAPI", "Python", "Pydantic", "WebSocket", "Docker", "Nginx", "GitHub Actions", "AWS EC2", "Sentry"],
@@ -68,7 +68,7 @@ const projects = [
     color: C.purple,
   },
   {
-    id: "law", title: "AI Law Advisor", subtitle: "Saudi Labor Law AI Contract Review, Compliance System & Legal Chatbot", date: "Sep 2025", client: "Legal Tech / HR Compliance (Saudi Arabia)",
+    id: "law", title: "Labor Law Compliance AI", subtitle: "Saudi Labor Law Contract Review & 24/7 Legal Chatbot", date: "Sep 2025", client: "Legal Tech / HR Compliance (Saudi Arabia)",
     problem: "Saudi labor law compliance requires clause-by-clause contract analysis against 240+ legal articles spanning employment contracts, wages, termination, leave, probation, and workplace safety — a process that takes legal professionals 4–6 hours per contract and is error-prone when done manually. HR teams at SMEs lack specialized legal knowledge for accurate compliance assessment. Additionally, employees and employers need 24/7 access to authoritative legal guidance in Arabic with source-backed answers, not generic AI responses that hallucinate legal references.",
     solution: "Engineered a comprehensive two-system AI legal platform: (1) A Contract Review Engine implementing four experimental approaches benchmarked head-to-head across 18 model configurations — fine-tuned GPT-4.1/4.1-mini trained on Saudi labor law corpora, RAG-enhanced models (GPT-3.5-turbo through GPT-5-mini/nano and o4-mini) with FAISS-indexed law articles and metadata-rich retrieval, baseline GPT controls, and Hybrid RAG+Fine-tuned models combining domain specialization with explicit legal grounding. Built a full Arabic NLP pipeline with clause chunking, diacritics normalization, metadata-rich context injection (article numbers + chapter names), and structured JSON-validated outputs. Evaluated rigorously across 6 metrics using the RAGAS framework with a standardized evaluator (gpt-4o-mini, temperature=0) ensuring unbiased cross-model comparison. (2) A Legal Advisor Chatbot with dual-mode interaction (casual chat vs. legal consultation), context-aware multi-turn conversations, and 3-level reference-backed answers (direct answer → source summary with article/chapter → full law text) — all grounded exclusively in Saudi Labor Law with zero hallucination design.",
     tech: ["OpenAI GPT-4.1", "OpenAI GPT-5", "FAISS", "RAGAS", "LangChain", "LangSmith", "FastAPI", "React", "Python", "Pydantic", "Arabic NLP", "Fine-tuning API", "Docker", "Nginx", "GitHub Actions"],
@@ -93,7 +93,7 @@ const projects = [
     color: C.warm,
   },
   {
-    id: "sqlviz", title: "SQL Query & Viz", subtitle: "LLM-Powered Natural Language to SQL Analytics Platform", date: "Jul 2025", client: "Telecom Data Analytics",
+    id: "sqlviz", title: "Chat with Your Database", subtitle: "Natural Language to SQL with Automated Charts & Business Insights", date: "Jul 2025", client: "Telecom Data Analytics",
     problem: "Telecom companies accumulate massive datasets spanning subscriber usage, billing cycles, payment histories, and device networks across hundreds of tables and millions of rows. Extracting meaningful insights traditionally requires writing complex multi-join SQL queries — a skill gap that creates a critical bottleneck between business teams needing real-time analytics and the limited pool of data engineers who can write them. Report requests queue for days, ad-hoc exploration is impossible for non-technical stakeholders, and the lack of visual context around raw query results leads to misinterpretation of trends and delayed decision-making.",
     solution: "Built an end-to-end LLM-powered analytics assistant using LangGraph that transforms natural language business questions into accurate, schema-aware SQL queries executed against Azure SQL databases. The pipeline features a multi-stage graph architecture with five orchestrated nodes: (1) Schema Introspection node dynamically loads table definitions, column types, foreign keys, and sample rows for contextual grounding; (2) NL-to-SQL Generation node using GPT-4 with few-shot exemplars, query validation, and automatic syntax correction via retry logic; (3) Database Execution node with parameterized query execution, timeout guards, and structured DataFrame returns; (4) Chart Generation node producing up to three distinct Chart.js configurations (bar, line, pie, scatter) rendered via QuickChart API with intelligent chart-type selection based on data shape; (5) Insight Generation node delivering executive-style natural language summaries with trend detection, anomaly highlighting, and actionable recommendations contextualizing the results for C-level stakeholders.",
     tech: ["LangGraph", "LangChain", "OpenAI GPT-4", "Azure SQL", "FastAPI", "React", "Chart.js", "QuickChart API", "Pandas", "SQLAlchemy", "Docker", "Python"],
@@ -117,7 +117,7 @@ const projects = [
     color: C.purple,
   },
   {
-    id: "nextgen-rag", title: "NextGen RAG Chatbot", subtitle: "Enterprise-Grade Conversational AI with Advanced RAG Architecture", date: "Jun 2025", client: "Enterprise Client",
+    id: "knowledgevault", title: "Enterprise Knowledge Chatbot", subtitle: "RAG Document Q&A with Multi-Session Memory & Source Grounding", date: "Jun 2025", client: "Enterprise Client",
     problem: "Enterprise knowledge bases spanning thousands of documents — policy manuals, technical docs, SOPs, and compliance guides — are effectively inaccessible through traditional keyword search. Employees waste hours navigating document silos, get outdated or contradictory answers, and cannot carry context across multi-turn interactions. Previous chatbot attempts suffered from hallucinations, lost conversation state between sessions, zero observability into retrieval quality, and no graceful degradation under load — making them unusable for mission-critical enterprise workflows where accuracy and uptime are non-negotiable.",
     solution: "Engineered a production-grade RAG chatbot using LangGraph with a sophisticated multi-node orchestration architecture featuring six specialized nodes: (1) Query Understanding node with intent classification, query decomposition for complex multi-part questions, and hypothetical document embedding (HyDE) for improved retrieval; (2) Hybrid Retrieval node combining FAISS dense vector search with BM25 sparse retrieval and Reciprocal Rank Fusion (RRF) for optimal recall-precision balance; (3) Context Assembly node with relevance re-ranking via cross-encoder scoring, redundancy elimination, and dynamic context window budgeting; (4) Generation node with structured prompting, citation injection, and confidence-calibrated responses; (5) Memory Management node persisting conversation summaries, entity mentions, and user preferences across sessions via PostgreSQL + Redis dual-layer storage; (6) Guard node with hallucination detection, source grounding verification, and graceful fallback to 'I don't know' when retrieval confidence is below threshold. Full async pipeline with streaming responses.",
     tech: ["LangGraph", "LangChain", "FAISS", "OpenAI GPT-4", "FastAPI", "React", "PostgreSQL", "Redis", "LangSmith", "Pydantic", "Docker", "Nginx", "GitHub Actions", "Python"],
@@ -142,7 +142,7 @@ const projects = [
     color: C.accent,
   },
   {
-    id: "wzgate", title: "WzGATE", subtitle: "Intelligent Real Estate Conversational AI with RAG", date: "Mar 2025", client: "Real Estate Company (Egypt)",
+    id: "propflow", title: "Real Estate AI Chatbot", subtitle: "Dual-Mode Property Query Bot for WhatsApp & Web", date: "Mar 2025", client: "Real Estate Company (Egypt)",
     problem: "Real estate agents were overwhelmed by 200+ repetitive property queries daily across WhatsApp and web channels, with no way to intelligently distinguish between property-specific questions (requiring database lookup with filtering on price, area, bedrooms, location) and general market or neighborhood questions (requiring real-time web knowledge about market trends, school districts, and regulations). Response times averaged 4+ hours during peak periods, causing an estimated 35% lead drop-off. Agents spent 70% of their time answering FAQ-level questions instead of closing deals, and no system existed to qualify leads or capture buyer intent data for the CRM pipeline.",
     solution: "Architected a dual-mode conversational AI system using LangGraph with a classifier LLM node that dynamically routes queries between two specialized RAG subgraphs: (1) Property RAG subgraph with FAISS semantic search over vectorized listing data enriched with structured metadata (price ranges, square footage, bedrooms, neighborhood, amenities) — supporting composite filters, proximity-based ranking, and natural language preference matching ('spacious apartment near schools under 2M EGP'); (2) General Knowledge RAG subgraph using Tavily real-time web search for market trends, neighborhood demographics, mortgage rates, and regulatory questions — with source citation and freshness scoring. Both subgraphs feed into a Response Synthesis node that formats answers with property cards (images, prices, links), comparison tables, and contextual follow-up suggestions. Integrated automated lead scoring based on conversation signals (budget mentions, urgency indicators, viewing requests) with webhook-based CRM push.",
     tech: ["LangGraph", "LangChain", "FAISS", "Tavily API", "Twilio WhatsApp API", "FastAPI", "React", "OpenAI GPT-4", "SQLAlchemy", "PostgreSQL", "Redis", "Celery", "Docker", "Python"],
@@ -167,7 +167,7 @@ const projects = [
     color: C.sky,
   },
   {
-    id: "mandatory-checker", title: "Mandatory List Checker", subtitle: "AI-Powered Bilingual Product Matching & Compliance Verification", date: "Mar 2025", client: "Government / Regulatory Compliance",
+    id: "mandatory-checker", title: "Product Compliance Verifier", subtitle: "AI-Powered Arabic/English Matching for Regulatory List Compliance", date: "Mar 2025", client: "Government / Regulatory Compliance",
     problem: "Organizations importing or manufacturing products in Saudi Arabia must verify whether product names appear on official mandatory lists maintained by SASO (Saudi Standards, Metrology and Quality Organization) and determine Local Content Certificate (LCC) requirements and baseline compliance thresholds. Product names are notoriously messy — bilingual (Arabic/English), inconsistently formatted, abbreviated, containing transliterated brand names, and riddled with variant spellings. Manual Excel lookups across 10,000+ mandatory list entries are slow (averaging 3-5 minutes per product), error-prone (estimated 12% miss rate), and completely unscalable when processing enterprise catalogs of 500+ products — leading to compliance gaps, certification delays, customs holds, and potential regulatory penalties.",
     solution: "Built an AI-driven compliance verification platform with a three-tier cascading matching pipeline: (1) Exact Match tier using normalized dictionary lookup with Arabic/English canonical form mapping for instant O(1) hits; (2) Lexical Similarity tier via RapidFuzz combining token-sort ratio, partial ratio, and weighted ratio algorithms with configurable thresholds — catching abbreviations, word reorderings, and minor spelling variations; (3) Semantic Search tier using FAISS with OpenAI text-embedding-3-small vectors for deep meaning-level matching — handling paraphrased descriptions, cross-language synonyms, and industry-specific terminology. Each tier returns a confidence score; the pipeline selects the best match across all tiers with method attribution. A QA-threshold system automatically flags low-confidence matches for human review. Integrated an LLM-powered conversational agent with OpenAI function-calling tools enabling compliance officers to query, explain match reasoning, filter by confidence/method/status, bulk-approve flagged items, and correct mismatches through natural dialogue — with full audit trail of every human override.",
     tech: ["OpenAI GPT-4", "OpenAI Embeddings", "FAISS", "RapidFuzz", "FastAPI", "React", "PostgreSQL", "Pandas", "NumPy", "Pydantic", "Docker", "Python"],
@@ -192,7 +192,7 @@ const projects = [
     color: C.teal,
   },
   {
-    id: "kfsc", title: "KFSC Edu Assist", subtitle: "Arabic Academic RAG Assistant with Custom NLP", date: "Feb 2025", client: "KFSC Academic Institution (Saudi Arabia)",
+    id: "kfsc", title: "Arabic Academic Assistant", subtitle: "Course-Aware RAG Chatbot for Arabic University Documents", date: "Feb 2025", client: "KFSC Academic Institution (Saudi Arabia)",
     problem: "Students and faculty at King Fahd Security College needed instant, accurate answers from Arabic academic content spanning 50+ courses across multiple departments — including lecture notes, textbooks, exam archives, and syllabi totaling thousands of documents. Existing search tools failed catastrophically on Arabic text due to dialect variations (Saudi/Egyptian/Levantine), diacritics inconsistency (the same word written with or without tashkeel), morphological complexity (Arabic root-pattern system creating dozens of surface forms per concept), and complete lack of semantic understanding for domain-specific academic terminology. Students spent hours hunting through PDFs for specific information, and faculty couldn't efficiently cross-reference materials across courses.",
     solution: "Developed a production RAG system with a custom four-stage Arabic NLP normalization pipeline: (1) Diacritics & orthographic normalization — stripping tashkeel, unifying alef/ya/ta-marbuta variants, handling kashida elongation; (2) Morphological analysis via CAMeL Tools — lemmatization, root extraction, and POS tagging to map surface forms to canonical representations; (3) Domain-specific stopword removal with a custom academic Arabic stopword list augmented beyond standard lists; (4) Dialect-to-MSA normalization handling Saudi colloquial terms commonly used in lecture transcriptions. Implemented semantic chunking optimized for academic document structure — detecting section headers, definition blocks, theorem/proof pairs, exam questions, and bullet-point lists to create semantically coherent chunks instead of naive fixed-size splits. Built a course-aware retrieval system with hierarchical metadata filtering (department → course code → content type → semester) and dynamic context assembly with relevance re-ranking. Rigorously evaluated using RAGAS framework (context recall, faithfulness, answer relevancy, context precision), AL-BLEU, and ROUGE-L metrics with per-query performance breakdowns and real-time LangSmith production monitoring.",
     tech: ["LangGraph", "LangChain", "FAISS", "OpenAI GPT-4", "OpenAI Embeddings", "RAGAS", "LangSmith", "FastAPI", "React", "CAMeL Tools", "PostgreSQL", "Docker", "Nginx", "Python"],
@@ -217,7 +217,7 @@ const projects = [
     color: C.rose,
   },
   {
-    id: "hajj", title: "Hajj-GPT", subtitle: "First-of-Kind Islamic Reference RAG Chatbot", date: "Jan 2025", client: "Islamic Guidance Platform",
+    id: "hajj", title: "Hajj Guidance Chatbot", subtitle: "First Islamic Reference RAG Chatbot with Scholar-Authenticated Sources", date: "Jan 2025", client: "Islamic Guidance Platform",
     problem: "Over 2 million Hajj pilgrims annually need authentic, real-time religious guidance on rituals (Ihram, Tawaf, Sa'i, Wuquf, Ramy, and more), prayers, supplications (du'a), and regulatory procedures. Existing resources are static books, pamphlets, and websites with no interactivity, no personalization to the pilgrim's current ritual stage, and no meaningful multilingual support — leaving the majority of non-Arabic speakers (60%+ of pilgrims from South Asia, Southeast Asia, and Africa) critically underserved during one of the most important spiritual journeys of their lives. Critically, religious guidance requires scholarly authentication — generic AI chatbots that hallucinate Hadith references or fabricate Fiqh rulings would be not just unhelpful but potentially harmful and theologically impermissible.",
     solution: "Pioneered the first Islamic reference RAG chatbot powered by retrieval-augmented generation over a curated, scholarly-authenticated religious corpus encompassing Quran (with Tafsir commentary), verified Hadith collections (Sahih Bukhari, Sahih Muslim, and four Sunan books), and Fiqh rulings from the four major schools of thought (Hanafi, Maliki, Shafi'i, Hanbali). Built a multi-stage retrieval pipeline: (1) Query Understanding node with religious intent classification (ritual guidance, du'a request, Fiqh ruling, regulatory question) and Arabic theological term expansion; (2) FAISS semantic search over the vectorized corpus with Sentence Transformers embeddings fine-tuned on Islamic text; (3) Source Verification layer cross-referencing every retrieved passage against the authenticated text registry — rejecting any unverified or weak-chain (da'if) Hadith before they reach the generation stage; (4) Response Generation with mandatory source citation format (Surah:Ayah for Quran, Book:Chapter:Hadith# for Hadith, Scholar+School for Fiqh). Integrated ritual stage tracking with personalized guidance and multilingual support in Arabic, English, and Urdu with culturally-adapted explanations.",
     tech: ["LangChain", "LangGraph", "OpenAI GPT-4", "FAISS", "Sentence Transformers", "FastAPI", "React", "MongoDB", "Redis", "Docker", "Python"],
@@ -242,7 +242,7 @@ const projects = [
     color: C.green,
   },
   {
-    id: "arabic-img", title: "Arabic Dialect Text-to-Image", subtitle: "Pioneering Arabic Dialect Image Generation Research", date: "Oct–Dec 2024", client: "Academic Research / NLP Innovation",
+    id: "arabic-img", title: "Arabic Dialect Image Generator", subtitle: "Research: Generating Images from Arabic Dialect Prompts", date: "Oct–Dec 2024", client: "Academic Research / NLP Innovation",
     problem: "State-of-the-art text-to-image generation systems (Stable Diffusion, DALL-E, Midjourney) are exclusively trained on English-captioned image datasets (LAION-5B, COCO), leaving Arabic — a language spoken by 400M+ people across diverse dialects with rich cultural and visual vocabulary — completely unsupported. No prior research existed on generating images from Arabic dialect prompts, and the challenge is compounded by the fact that Arabic dialects (Egyptian, Gulf, Levantine, Maghreb) differ as much from each other as Romance languages do — a single 'translation' approach cannot serve the entire Arabic-speaking world. This creates a critical gap in multilingual AI, excluding one of the world's largest language communities from the generative AI revolution in creative content, marketing, education, and cultural preservation.",
     solution: "Pioneered one of the first systematic studies on Arabic dialect text-to-image generation, designing a rigorous experimental framework with two competing transformation pipelines evaluated across a full combinatorial matrix: (1) Dialect→MSA→English pipeline using two-stage translation preserving cultural context through Modern Standard Arabic as an intermediate representation; (2) Direct Dialect→English pipeline bypassing MSA for speed but risking cultural nuance loss. Evaluated across 4 Arabic dialects (Egyptian, Gulf, Levantine, Maghreb) × 5+ translation models (Gemini Pro, MarianMT, Helsinki-NLP Opus-MT, NLLB-200, and custom fine-tuned seq2seq models) × 3 diffusion architectures (Stable Diffusion 1.5, SD-XL, SD 2.1) — creating a 60+ configuration evaluation matrix. Generated 36K+ images with controlled prompt sets spanning 12 semantic categories (landscapes, food, architecture, clothing, daily life, abstract concepts, etc.) designed to test cultural specificity preservation. Evaluated using three complementary metrics: FID (distributional quality), Inception Score (diversity and clarity), and CLIP Score (text-image semantic alignment) — with statistical significance testing across all configurations. Built a fully reproducible research pipeline with Weights & Biases experiment tracking, artifact versioning, and automated metric computation.",
     tech: ["Stable Diffusion XL", "Stable Diffusion 2.1", "Gemini Pro", "CLIP", "PyTorch", "HuggingFace Diffusers", "HuggingFace Transformers", "MarianMT", "NLLB-200", "Weights & Biases", "CUDA", "NumPy", "Matplotlib", "Python"],
@@ -267,7 +267,7 @@ const projects = [
     color: C.teal,
   },
   {
-    id: "datalentech", title: "Cairo 3A AI Poultry", subtitle: "Predictive Analytics & Conversational AI Platform for Poultry Farm Intelligence", date: "Jul 2024", client: "Cairo 3A — via Datalentech",
+    id: "farmsense", title: "Poultry Farm Analytics AI", subtitle: "Predictive Forecasting & Conversational AI for Farm Operations", date: "Jul 2024", client: "Agri-Tech Operations Company",
     problem: "Large-scale poultry operations managing multiple farms and houses generate massive daily telemetry — bird weights, mortality counts, feed consumption, medication logs, and environmental readings — but lack both predictive tools and accessible interfaces to act on that data. Farm managers rely on intuition and manual dashboard navigation, leading to reactive decision-making: feed waste goes undetected until cycle end, mortality spikes are caught too late, selling-period timing is guesswork, and non-technical staff are locked out of critical analytics. No existing system combines farm operations data with weather intelligence, forward-looking ML predictions, and a natural-language interface that lets any user query the platform conversationally.",
     solution: "Designed and delivered a full-stack predictive analytics platform with a Gemini-powered conversational AI layer. The prediction engine forecasts four critical poultry metrics — feed consumption, bird weight, mortality rate, and culls — by ingesting live farm data from Oracle DB, enriching with weather APIs, and training sequence-based ML models on 80+ engineered features across seven categories (rolling statistics, lag features, weather correlations, statistical moments, trigonometric time encodings, and farm metadata). The platform delivers four interactive modules: General Charts with ideal-zone analysis, Scenario Analysis ranked by Broiler Index, Model Performance dashboards (MAPE, MSE, MAE, R²), and RBAC User Management. On top of this, a Gemini-based chatbot service provides natural-language access to every platform capability — using intent classification to dynamically route queries to the correct API endpoint, parameter extraction with slot-filling for missing values (org codes, house IDs, dates, cycle numbers), multi-turn conversation context tracking for follow-up questions, and a modular plug-in handler architecture that makes adding new endpoints trivial. The chatbot formats responses as plain-language summaries, tables, or chart-ready JSON, with a full audit log of every query for traceability and future model retraining.",
     tech: ["Python", "Gemini API", "scikit-learn", "XGBoost", "Pandas", "NumPy", "Oracle DB", "FastAPI", "React", "Redis", "Docker", "Nginx", "GitHub Actions", "Weather API", "JWT"],
@@ -294,7 +294,7 @@ const projects = [
     color: C.warm,
   },
   {
-    id: "mealit", title: "Mealit", subtitle: "AI-Powered Meal Planning & Kitchen Assistant with Recommendation Engine", date: "Jan 2023", client: "Suez Canal University — Graduation Project",
+    id: "mealit", title: "AI Meal Planner", subtitle: "Recipe Recommendations, Ingredient Recognition & Smart Grocery Lists", date: "Jan 2023", client: "Suez Canal University — Graduation Project",
     problem: "The rise of busy lifestyles and fast-food dependency has led to a measurable decline in home-cooked meals, contributing to rising obesity rates and significant household food waste — studies show the average household wastes 30% of purchased groceries due to poor planning. Users lack convenient tools to plan meals based on what's actually available in their kitchen, discover recipes matching dietary preferences and nutritional goals, and manage grocery shopping efficiently with real price awareness. The disconnect between ingredient inventory, recipe discovery, and shopping creates a cycle of poor nutrition, wasted food, and unnecessary spending that affects millions of households.",
     solution: "Developed a full-stack AI-powered meal planning platform featuring a hybrid recommendation engine combining collaborative filtering (user-user and item-item similarity matrices trained on 50K+ user-recipe interaction logs) with content-based filtering (TF-IDF vectorization of recipe ingredients, cuisine tags, nutritional profiles, and preparation complexity) — unified via a weighted ensemble that adapts recommendation blend ratios based on user interaction history depth. Built a TensorFlow CNN image recognition pipeline for ingredient identification from photos (trained on 100+ common ingredient classes with data augmentation), enabling users to snap a photo of their fridge contents and instantly get recipe suggestions. Integrated a role-based chatbot with three personas — Nutritionist (dietary advice, macro tracking, allergy-safe substitutions), Chef (cooking techniques, flavor pairing, recipe modifications), and Planner (weekly meal scheduling, budget-aware grocery lists) — providing personalized guidance through natural conversation. Shopping cart module features real-time price comparison across grocery stores via API integration, automatic low-ingredient alerts based on pantry tracking, and one-click grocery list generation from planned meals. Built with React web frontend, Node.js/Express backend with RESTful API architecture, Flutter mobile app for cross-platform delivery, Python ML microservices, MongoDB for flexible document storage, and Redux state management for consistent cross-component state.",
     tech: ["Python", "TensorFlow", "scikit-learn", "React", "Redux", "Node.js", "Express.js", "Flutter", "MongoDB", "JWT", "Socket.IO", "Docker", "Nginx"],
@@ -319,7 +319,7 @@ const projects = [
     color: C.green,
   },
   {
-    id: "iot-health", title: "IoT Healthcare System", subtitle: "Real-Time Biomedical Monitoring & Emergency Alert Platform", date: "Dec 2022", client: "Benha University — Master's Graduation Project",
+    id: "iot-health", title: "IoT Patient Monitor", subtitle: "Real-Time Wireless Vitals Monitoring with Android & Web Dashboard", date: "Dec 2022", client: "Benha University — Master's Graduation Project",
     problem: "Emergency healthcare situations require continuous, real-time monitoring of critical patient vital signs with immediate data transmission to medical professionals. Traditional monitoring systems are wired, immobile, and lack remote accessibility — preventing timely intervention for patients in emergency scenarios, rural areas, or home care settings where rapid response is critical.",
     solution: "Developed an innovative IoT healthcare monitoring system featuring a custom biomedical instrument equipped with eight sensors capable of monitoring ten different health parameters simultaneously. The system transmits captured health data via NodeMCU Wi-Fi connectivity to a microcontroller for processing, then delivers real-time readings to healthcare professionals through both an Android mobile application and a Thinger.io web dashboard. Designed for emergency scenarios with wireless data transfer, remote monitoring capabilities, and instant alert mechanisms.",
     tech: ["Arduino", "NodeMCU", "Android SDK", "Thinger.io", "Wi-Fi", "IoT Sensors", "Java", "C++"],
@@ -335,7 +335,7 @@ const projects = [
     color: C.rose,
   },
   {
-    id: "recruitment-ai", title: "AI Recruitment System", subtitle: "Intelligent Candidate Recommendation & Chatbot Platform for Recruitment", date: "Mar 2023", client: "Curve AI — Talents Arena",
+    id: "recruitment-ai", title: "AI Hiring Assistant", subtitle: "Smart Candidate-Job Matching & LLM-Powered Recruiter Chatbot", date: "Mar 2023", client: "Curve AI — Talents Arena",
     problem: "Traditional recruitment processes rely on manual resume screening and keyword-based matching, resulting in high candidate-job misalignment, slow hiring cycles, and poor candidate experience. Recruiters spend excessive time sourcing and evaluating candidates without intelligent tools to surface the best matches, while candidates lack visibility into relevant opportunities matching their actual skills and experience.",
     solution: "Built an end-to-end AI-powered recruitment recommendation system leveraging NLP and neural networks for intelligent candidate-job matching. The platform features dual recommendation engines: one for surfacing job openings tailored to company requirements, and another for recommending candidates based on qualifications, skills, and experience. Integrated LLaMA 7B for candidate summarization and LLaMA 13B for advanced context-aware conversational flows via a chatbot that enables recruiters to discuss and evaluate candidates. Engineered data processing pipelines with Pandas and JSON schemas for dynamic handling of resumes and job postings, with A/B testing and ranking evaluation achieving 0.81 Precision@5.",
     tech: ["LLaMA 7B/13B", "LangChain", "Pandas", "Docker", "Semantic Ranking", "A/B Testing", "Python", "NLP"],
@@ -351,7 +351,7 @@ const projects = [
     color: C.purple,
   },
   {
-    id: "social-media", title: "Social Media Analysis", subtitle: "Large-Scale Tweet Analytics with Predictive Modeling", date: "Sep 2021", client: "University of Ottawa — Microsoft-Sponsored Capstone",
+    id: "social-media", title: "Tweet Analytics Platform", subtitle: "Large-Scale Sentiment & Emotion Analysis on 10M+ Tweets", date: "Sep 2021", client: "University of Ottawa — Microsoft-Sponsored Capstone",
     problem: "Understanding public sentiment and demographic patterns across social media at scale requires processing millions of unstructured text data points with high accuracy. Traditional analytics tools cannot handle the volume, linguistic diversity, and real-time demands of large-scale social media analysis needed for actionable business and research insights.",
     solution: "Processed 10M+ tweets for large-scale social media analysis, building predictive models for user demographics, 5-level sentiment classification, and multi-label emotion detection. Developed comprehensive NLP pipelines including text preprocessing, feature engineering, and ensemble classification models. Deployed interactive dashboards via Power BI and Plotly for real-time actionable analytics, enabling stakeholders to explore trends, sentiment shifts, and demographic insights dynamically.",
     tech: ["Python", "scikit-learn", "Power BI", "Plotly", "NLP", "Pandas", "NumPy"],
@@ -367,7 +367,7 @@ const projects = [
     color: C.sky,
   },
   {
-    id: "iot-botnet", title: "IoT Botnet Detection", subtitle: "Adaptive ML-Based Network Intrusion Detection System", date: "Apr 2021", client: "Academic Research — Network Security",
+    id: "iot-botnet", title: "IoT Intrusion Detector", subtitle: "Real-Time ML Botnet & Network Attack Detection with Kafka", date: "Apr 2021", client: "Academic Research — Network Security",
     problem: "The rapid proliferation of IoT devices has created an expanding attack surface for botnet-based network intrusions. Traditional rule-based intrusion detection systems cannot adapt to evolving attack patterns, suffer from high false positive rates, and lack the ability to process network traffic streams in real-time — leaving IoT networks vulnerable to DDoS, data exfiltration, and device hijacking attacks.",
     solution: "Developed a machine learning system for detecting network intrusions and IoT botnet attacks using Decision Tree, Random Forest, and SVM algorithms trained on structured network traffic datasets. Implemented a real-time detection pipeline using Apache Kafka for stream processing, enabling continuous monitoring of network traffic patterns. Designed the system to adapt over time with iterative evaluation using accuracy, F1-score, and detailed classification reports, enhancing detection performance as attack patterns evolve.",
     tech: ["scikit-learn", "Apache Kafka", "Random Forest", "SVM", "Decision Tree", "Pandas", "Python"],
@@ -383,7 +383,7 @@ const projects = [
     color: C.warm,
   },
   {
-    id: "securenet", title: "SecureNet IDS", subtitle: "Deep Learning Intrusion Detection & Prevention System", date: "Mar 2021", client: "Academic Research — Cybersecurity",
+    id: "securenet", title: "Deep Learning IDS", subtitle: "Autoencoder + ANN System for Multi-Type Network Attack Detection", date: "Mar 2021", client: "Academic Research — Cybersecurity",
     problem: "Complex network intrusions including DoS, Probe, User-to-Root (U2R), and Remote-to-Local (R2L) attacks require sophisticated detection mechanisms that go beyond traditional signature-based approaches. Standard ML classifiers struggle with the high dimensionality and class imbalance inherent in network intrusion datasets, particularly for rare but critical attack types like U2R and R2L.",
     solution: "Built a network security solution combining Autoencoders for unsupervised anomaly detection with ANN classifiers and traditional ML algorithms to detect complex intrusion types. The autoencoder learns normal traffic patterns and flags anomalies, while the ANN classifier categorizes detected intrusions into specific attack types. Trained and validated on industry-standard datasets (UNSW-NB15 and NSL-KDD) from the University of New Brunswick, with performance evaluation using accuracy, precision, and confusion matrix analysis to optimize detection reliability across all attack categories.",
     tech: ["TensorFlow", "Keras", "scikit-learn", "Pandas", "NumPy", "Python", "Deep Learning"],
@@ -428,11 +428,60 @@ const experiences = [
 ];
 
 const skills = {
-  "Generative AI & LLMs": ["RAG Pipelines", "Prompt Engineering", "Fine-Tuning (SFT/RLHF)", "Multi-Agent Orchestration", "LLM Evaluation (RAGAS, DeepEval)", "Agentic AI (LangGraph)"],
-  "Production AI Systems": ["Azure AI Foundry", "AWS SageMaker", "Model Serving & Optimization", "Cost Monitoring (Grafana)", "Celery / Kafka Pipelines", "Docker / Kubernetes"],
-  "Frameworks & Tools": ["LangChain / LangGraph", "LlamaIndex", "FAISS / Vector DBs", "PyTorch", "HuggingFace Transformers", "ONNX Runtime"],
-  "Specialized Domains": ["Arabic NLP & Dialects", "Islamic AI Applications", "Legal & Compliance AI", "Document Intelligence", "Enterprise Banking AI"],
-  "Languages": ["Python", "JavaScript/TypeScript", "SQL", "Arabic (Native)", "English (Fluent)"],
+  "LLM & Generative AI": [
+    "Multi-Agent Orchestration (LangGraph)",
+    "RAG Pipelines (Hybrid, Agentic, Multi-Modal)",
+    "Fine-Tuning (SFT / RLHF / Domain-Specific)",
+    "Prompt Engineering & Chain-of-Thought",
+    "LLM Evaluation (RAGAS, DeepEval, LangSmith)",
+    "Conversational AI & Chatbots",
+    "OpenAI GPT-4/5, Gemini Pro, LLaMA 7B/13B",
+  ],
+  "AI Frameworks & Vector Search": [
+    "LangChain / LangGraph",
+    "LlamaIndex",
+    "FAISS / Pinecone / Vector DBs",
+    "HuggingFace Transformers & Diffusers",
+    "Sentence Transformers & Embeddings",
+    "RapidFuzz / Semantic Matching",
+    "ONNX Runtime & Model Optimization",
+  ],
+  "Machine Learning & Deep Learning": [
+    "PyTorch / TensorFlow / Keras",
+    "scikit-learn / XGBoost",
+    "Computer Vision (YOLOv9, LayoutLMv3, OpenCV)",
+    "NLP & Arabic NLP (CAMeL Tools)",
+    "Stable Diffusion XL / CLIP",
+    "Feature Engineering (80+ features)",
+    "Time-Series Forecasting & Predictive Analytics",
+  ],
+  "Backend & APIs": [
+    "Python (Primary)",
+    "FastAPI / Flask",
+    "Node.js / Express.js",
+    "PostgreSQL / MongoDB / Oracle DB",
+    "Redis / Celery / Kafka",
+    "SQLAlchemy / Pydantic",
+    "WebSocket / Socket.IO / REST APIs",
+  ],
+  "Cloud, DevOps & MLOps": [
+    "Azure AI Foundry / Azure ML Studio",
+    "AWS EC2 / SageMaker",
+    "Docker / Docker Compose",
+    "Nginx / SSL / Reverse Proxy",
+    "CI/CD (GitHub Actions)",
+    "Grafana / Sentry / LangSmith Monitoring",
+    "JWT / RBAC / SOC-2 Compliance",
+  ],
+  "Frontend & Data Visualization": [
+    "React / JavaScript / TypeScript",
+    "Streamlit",
+    "Flutter (Mobile)",
+    "Chart.js / Plotly / Power BI",
+    "Pandas / NumPy / Data Pipelines",
+    "Weights & Biases Experiment Tracking",
+    "SQL / Azure SQL / Data Modeling",
+  ],
 };
 
 const certs = [
@@ -702,25 +751,48 @@ export default function Portfolio() {
     </div>
   );
 
-  const SkillsPage = () => (
+  const SkillsPage = () => {
+    const catIcons = ["🧠", "🔗", "⚡", "🛠", "☁️", "📊"];
+    const catColors = [C.accent, C.purple, C.warm, C.sky, C.green, C.rose];
+    return (
     <div style={wrap}>
-      <Section sub="Deep expertise in production AI, from architecture to deployment">Skills & Expertise</Section>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
+      <Section sub="Production-tested technologies across 15+ shipped AI projects">Technical Expertise</Section>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "18px" }}>
         {Object.entries(skills).map(([cat, items], i) => {
-          const cols = [C.accent, C.purple, C.sky, C.warm, C.rose];
-          const c = cols[i % cols.length];
+          const c = catColors[i % catColors.length];
+          const icon = catIcons[i % catIcons.length];
           return (
-            <div key={cat} style={{ background: C.white, borderRadius: "14px", padding: "24px", border: `1px solid ${C.border}`, borderLeft: `3px solid ${c}`, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
-              <h3 style={{ fontSize: "15px", fontWeight: 700, color: c, marginBottom: "14px", fontFamily: "'Syne', sans-serif" }}>{cat}</h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
-                {items.map(it => <div key={it} style={{ display: "flex", alignItems: "center", gap: "8px" }}><div style={{ width: "5px", height: "5px", borderRadius: "50%", background: c, flexShrink: 0 }} /><span style={{ fontSize: "13px", color: C.text }}>{it}</span></div>)}
+            <div key={cat} style={{ background: C.white, borderRadius: "16px", padding: "26px", border: `1px solid ${C.border}`, borderTop: `3px solid ${c}`, boxShadow: "0 2px 8px rgba(0,0,0,0.04)", transition: "box-shadow 0.2s, transform 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 6px 20px ${c}18`; e.currentTarget.style.transform = "translateY(-2px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"; e.currentTarget.style.transform = "none"; }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+                <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: `${c}10`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>{icon}</div>
+                <h3 style={{ fontSize: "15px", fontWeight: 700, color: C.text, margin: 0, fontFamily: "'Syne', sans-serif" }}>{cat}</h3>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "9px" }}>
+                {items.map(it => (
+                  <div key={it} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: c, flexShrink: 0 }} />
+                    <span style={{ fontSize: "13.5px", color: C.text, lineHeight: 1.4 }}>{it}</span>
+                  </div>
+                ))}
               </div>
             </div>
           );
         })}
       </div>
+      {/* Domain Expertise Banner */}
+      <div style={{ marginTop: "32px", background: `linear-gradient(135deg, ${C.accent}08, ${C.purple}08)`, borderRadius: "16px", border: `1px solid ${C.accent}15`, padding: "28px 30px" }}>
+        <h3 style={{ fontSize: "15px", fontWeight: 700, color: C.accent, margin: "0 0 14px", fontFamily: "'Syne', sans-serif" }}>Domain Expertise</h3>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+          {["Arabic NLP & Dialect Processing", "Islamic AI Applications", "Legal & Compliance AI", "Document Intelligence & OCR", "Enterprise Banking AI", "Healthcare IoT", "Real Estate Tech", "AgriTech & Predictive Analytics", "Recruitment & HR Tech", "Cybersecurity & IDS"].map(d => (
+            <span key={d} style={{ padding: "7px 14px", borderRadius: "20px", fontSize: "12.5px", fontWeight: 600, background: C.white, color: C.text, border: `1px solid ${C.border}`, letterSpacing: "0.01em" }}>{d}</span>
+          ))}
+        </div>
+      </div>
     </div>
-  );
+    );
+  };
 
   const EducationPage = () => (
     <div style={wrap}>
