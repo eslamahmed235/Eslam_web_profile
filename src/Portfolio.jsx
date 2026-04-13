@@ -408,7 +408,7 @@ const experiences = [
     highlights: ["Improved Bing PDF understanding by 35% across 400B+ indexed documents", "Invented novel WER + MAP hybrid evaluation metric adopted across team", "Designed hybrid CV-NLP model (LayoutLMv3 + YOLOv9) — F1 improved by 27%", "Deployed ONNX Runtime pipelines — sub-100ms inference latency at scale", "Led cross-functional team, accelerating model iteration cycles by 3x"],
     tech: ["PyTorch", "ONNX Runtime", "Azure ML Studio", "LayoutLMv3", "YOLOv9"] },
   { title: "AI & Generative AI Freelancer", company: "Upwork", type: "Top-Rated", period: "Jan 2024 – Present", location: "Remote",
-    highlights: ["100% Job Success Score — $20K+ across 15+ production GenAI projects", "RAG pipelines, multi-agent systems, document intelligence, fine-tuned models", "Clients in legal tech, real estate, marketing, healthcare", "Consistently reducing client operational costs by 30–60%"],
+    highlights: ["100% Job Success Score — $20K+ across 20+ production GenAI projects", "RAG pipelines, multi-agent systems, document intelligence, fine-tuned models", "Clients in legal tech, real estate, marketing, healthcare", "Consistently reducing client operational costs by 30–60%"],
     tech: ["LangChain", "LangGraph", "FAISS", "LlamaIndex", "OpenAI", "FastAPI"] },
   { title: "Machine Learning Engineer", company: "Curve AI — Talents Arena", type: "Full-time", period: "Apr 2021 – Apr 2024", location: "Cairo, Egypt",
     highlights: ["Built an AI-powered recruitment recommendation system with LLM-based chatbot, achieving 0.81 Precision@5 and reducing candidate-job misalignment by 35%", "Engineered SaaS talent-matching platform using vector databases and semantic search, cutting average hiring cycle time by 60%", "Designed predictive analytics models and deployed ML-driven automation pipelines serving 10K+ monthly candidate evaluations", "Integrated LLaMA 7B/13B for candidate summarization and context-aware conversational flows with structured prompting"],
@@ -623,7 +623,7 @@ export default function Portfolio() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "12px", maxWidth: "600px" }}>
-          {[{ n: "6+", l: "Years in AI/ML" }, { n: "15+", l: "GenAI Projects" }, { n: "100%", l: "Upwork Success" }, { n: "400B+", l: "Docs at Microsoft" }].map(s => (
+          {[{ n: "6+", l: "Years in AI/ML" }, { n: "20+", l: "GenAI Projects" }, { n: "100%", l: "Upwork Success" }, { n: "400B+", l: "Docs at Microsoft" }].map(s => (
             <div key={s.l} style={{ padding: "14px", background: C.white, borderRadius: "10px", border: `1px solid ${C.border}`, boxShadow: "0 1px 3px rgba(0,0,0,0.04)" }}>
               <div style={{ fontSize: "22px", fontWeight: 800, color: C.accent, fontFamily: "'Space Mono', monospace" }}>{s.n}</div>
               <div style={{ fontSize: "11px", color: C.textMuted, marginTop: "3px" }}>{s.l}</div>
@@ -756,7 +756,7 @@ export default function Portfolio() {
     const catColors = [C.accent, C.purple, C.warm, C.sky, C.green, C.rose];
     return (
     <div style={wrap}>
-      <Section sub="Production-tested technologies across 15+ shipped AI projects">Technical Expertise</Section>
+      <Section sub="Production-tested technologies across 20+ shipped AI projects">Technical Expertise</Section>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "18px" }}>
         {Object.entries(skills).map(([cat, items], i) => {
           const c = catColors[i % catColors.length];
